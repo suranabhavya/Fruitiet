@@ -1,0 +1,20 @@
+{% extends "products/layout.html" %}
+
+{% block title %}
+    Fruitiet- Form
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-3"> 
+        </div>
+        <div class="col-sm-6" style="margin-top: 50px;">
+            <form method="POST" action="">{% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Login" class="btn btn-success">
+            </form>    
+        </div>
+        <div class="col-sm-3">    
+        </div>
+    </div>
+{% endblock %}

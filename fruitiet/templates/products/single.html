@@ -1,0 +1,30 @@
+{% extends "products/layout.html" %}
+
+{% block title %}
+    Fruitiet- {{ product.title }}
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-sm-4">
+            {% for img in images %}
+                {% if img.featured %}
+                    <img class="img-responsive" src="{{ MEDIA_URL }}{{ img.image.url }}" alt="photo">
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-sm-8">
+            <h1 class="display-4">{{ product.title }}</h1>
+            <p class="lead">Price: &#8377;{{ product.price }}</p>
+            <hr>
+            <p class="lead">{{ product.description }}</p>
+            <form class="form" method="GET" action="{% url 'update_cart' product.slug %}">
+                <input value="1" name="qty" type="number">
+                <input class="btn btn-warning" type="submit" value="Add to Cart">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "products/layout.html" %}
+
+{% block title %}
+    Fruitiet- User
+{% endblock %}
+
+{% block body %}
+    {{ user.order_set.all }}
+{% endblock %}
